@@ -1,0 +1,144 @@
+# ============================================================
+#  .gitignore — SE 8101 Research Project
+#  S.Shanthosh | 20APSE4882
+# ============================================================
+
+# ── Python ───────────────────────────────────────────────────
+__pycache__/
+*.py[cod]
+*$py.class
+*.pyo
+.Python
+*.egg
+*.egg-info/
+dist/
+build/
+eggs/
+parts/
+var/
+sdist/
+develop-eggs/
+.installed.cfg
+lib/
+lib64/
+
+# ── Virtual environments ─────────────────────────────────────
+.env
+.venv
+env/
+venv/
+ENV/
+env.bak/
+venv.bak/
+.conda/
+
+# ── Jupyter Notebooks ────────────────────────────────────────
+.ipynb_checkpoints/
+*.ipynb
+
+# ── Data files (large — tracked by Git LFS or excluded) ──────
+# Raw and processed data
+data/raw/*.csv
+data/processed/*.csv
+data/splits/*.csv
+
+# Keep the data folder structure
+!data/raw/.gitkeep
+!data/processed/.gitkeep
+!data/splits/.gitkeep
+
+# ── Model weights (large binary files) ───────────────────────
+models/*.pth
+models/*.pt
+models/*.bin
+models/*.onnx
+models/distilbert_bug_reports/model.safetensors
+models/distilbert_bug_reports/tokenizer.json
+
+# Keep model config/metadata
+!models/distilbert_bug_reports/config.json
+!models/distilbert_bug_reports/tokenizer_config.json
+!models/.gitkeep
+
+# ── Generated PDF & PPTX outputs ─────────────────────────────
+report/*.pdf
+report/*.pptx
+
+# ── HuggingFace cache ─────────────────────────────────────────
+.cache/
+~/.cache/huggingface/
+
+# ── OS files ─────────────────────────────────────────────────
+# Windows
+Thumbs.db
+Thumbs.db:encryptable
+ehthumbs.db
+ehthumbs_vista.db
+Desktop.ini
+$RECYCLE.BIN/
+*.lnk
+
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+._*
+.Spotlight-V100
+.Trashes
+
+# Linux
+*~
+.fuse_hidden*
+.directory
+.Trash-*
+
+# ── IDE & editor files ────────────────────────────────────────
+# VS Code
+.vscode/
+*.code-workspace
+
+# PyCharm / JetBrains
+.idea/
+*.iml
+*.iws
+*.ipr
+
+# Spyder
+.spyderproject.cfg
+.spyproject/
+
+# Vim / Emacs
+*.swp
+*.swo
+*~
+\#*\#
+.\#*
+
+# ── Logs & temporary files ────────────────────────────────────
+*.log
+*.tmp
+*.temp
+*.bak
+*.orig
+
+# ── Claude Code ───────────────────────────────────────────────
+.claude/
+
+# ── LaTeX auxiliary files ─────────────────────────────────────
+report/*.aux
+report/*.log
+report/*.out
+report/*.toc
+report/*.synctex.gz
+report/*.fls
+report/*.fdb_latexmk
+
+# ── Results charts (generated, not source) ───────────────────
+# Comment out these lines if you WANT to track charts in git
+# results/*.png
+
+# ── Misc ──────────────────────────────────────────────────────
+*.DS_Store
+*.coverage
+.pytest_cache/
+htmlcov/
