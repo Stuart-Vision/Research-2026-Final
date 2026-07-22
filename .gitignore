@@ -125,13 +125,17 @@ $RECYCLE.BIN/
 .claude/
 
 # ── LaTeX auxiliary files ─────────────────────────────────────
-report/*.aux
-report/*.log
-report/*.out
-report/*.toc
-report/*.synctex.gz
-report/*.fls
-report/*.fdb_latexmk
+*.aux
+*.lof
+*.lot
+*.out
+*.toc
+*.synctex.gz
+*.fls
+*.fdb_latexmk
+
+# Keep the compiled thesis PDF tracked (overrides report/*.pdf above)
+!Thesis/thesis.pdf
 
 # ── Results charts (generated, not source) ───────────────────
 # Comment out these lines if you WANT to track charts in git
