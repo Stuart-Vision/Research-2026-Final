@@ -60,9 +60,16 @@ models/distilbert_bug_reports/tokenizer.json
 !models/distilbert_bug_reports/tokenizer_config.json
 !models/.gitkeep
 
-# ── Generated PDF & PPTX outputs ─────────────────────────────
-report/*.pdf
-report/*.pptx
+# ── Final deliverables (TRACKED — do not ignore) ─────────────
+#   Thesis/thesis.tex + thesis.pdf      final thesis
+#   Thesis/figures/                     figures used by the thesis
+#   Presentation/20APSE4882.pptx        final defence deck
+#   Presentation/generate_presentation.py + logo.jpg
+# These are the submitted artefacts and are kept in version control.
+
+# ── Office lock / temp files ─────────────────────────────────
+~$*
+*.~vsd*
 
 # ── HuggingFace cache ─────────────────────────────────────────
 .cache/
@@ -133,9 +140,6 @@ $RECYCLE.BIN/
 *.synctex.gz
 *.fls
 *.fdb_latexmk
-
-# Keep the compiled thesis PDF tracked (overrides report/*.pdf above)
-!Thesis/thesis.pdf
 
 # ── Results charts (generated, not source) ───────────────────
 # Comment out these lines if you WANT to track charts in git

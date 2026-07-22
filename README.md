@@ -6,9 +6,10 @@
 |-------|--------|
 | **Student** | S. Shanthosh |
 | **Index Number** | 20APSE4882 |
-| **Supervisor** | Mrs. WMLS Abeythunga |
-| **Department** | Software Engineering |
-| **Date** | 27th May 2026 |
+| **Supervisor** | Mrs. W.M.L.S. Abeythunga |
+| **Degree** | BSc Honours in Software Engineering |
+| **Department** | Computing and Information Systems |
+| **Status** | Thesis and final defence deck complete |
 
 ---
 
@@ -88,14 +89,24 @@ Research 2026/
 │   ├── all_results_so_far.csv       # Incremental results
 │   └── FINAL_results_table.csv      # Complete final results
 │
-├── report/
-│   ├── generate_full_report.py      # Full 5-chapter academic report generator
-│   ├── generate_presentation.py     # Final evaluation presentation generator
-│   ├── generate_pdf.py              # Daily progress report generator
-│   ├── Full_Research_Report_20APSE4882.pdf   # Final academic report (17 pages)
-│   ├── Final_Presentation_20APSE4882.pptx    # Final evaluation slides (20 slides)
-│   ├── Progress_Report_27May2026.pdf          # Daily progress report
-│   └── progress_report.tex          # LaTeX source for Overleaf
+├── Thesis/                          # FINAL THESIS (submitted deliverable)
+│   ├── thesis.tex                   # LaTeX source, 5 chapters + appendices A–D
+│   ├── thesis.pdf                   # Compiled thesis (79 pages)
+│   ├── figures/                     # Chart PNGs referenced by the thesis
+│   └── Thesis_Preparation_And_Submission_Guidelines-V1 (1).pdf
+│
+├── Presentation/                    # FINAL DEFENCE DECK (submitted deliverable)
+│   ├── 20APSE4882.pptx              # Final defence presentation (17 slides)
+│   ├── generate_presentation.py     # Deck generator (python-pptx)
+│   ├── logo.jpg                     # Faculty logo extracted from the template
+│   ├── FINAL Defense PPT Template_18-19(1).pptx   # Departmental template
+│   └── Research Project Final Defence - Guidelines--1.pdf
+│
+├── report/                          # Interim deliverable (May 2026)
+│   ├── Progress_Report_27May2026.pdf
+│   ├── progress_report.tex          # LaTeX source for Overleaf
+│   ├── generate_pdf.py              # Progress report generator
+│   └── fix_chars.py                 # ASCII-safety helper for generate_pdf.py
 │
 ├── download_dataset.py              # Downloads JM1 from OpenML
 ├── README.md                        # This file
@@ -145,12 +156,24 @@ python notebooks/05_bert.py
 # Step 7 — Enhanced CNN-LSTM + Cross-Validation
 python notebooks/06_final_enhancement.py
 
-# Step 8 — Generate full research report PDF
-python report/generate_full_report.py
-
-# Step 9 — Generate evaluation presentation
-python report/generate_presentation.py
+# Step 8 — Generate the final defence presentation
+python Presentation/generate_presentation.py
 ```
+
+### Build the Thesis
+
+The thesis is compiled with pdfLaTeX. Run three passes so the table of
+contents, list of figures, list of tables and cross-references resolve:
+
+```bash
+cd Thesis
+pdflatex thesis.tex
+pdflatex thesis.tex
+pdflatex thesis.tex
+```
+
+Figures resolve from `Thesis/figures/`, with `../results/` as a fallback,
+so the same source compiles locally or on Overleaf.
 
 ---
 
@@ -226,12 +249,20 @@ loss = pos_weight * FL(pt),  pos_weight = 4.2
 
 | File | Description |
 |------|-------------|
-| `report/Full_Research_Report_20APSE4882.pdf` | 17-page academic report (5 chapters) |
-| `report/Final_Presentation_20APSE4882.pptx` | 20-slide evaluation presentation |
-| `report/Progress_Report_27May2026.pdf` | 5-page daily progress report |
+| `Thesis/thesis.pdf` | **Final thesis** — 79 pages, 5 chapters + appendices A–D |
+| `Thesis/thesis.tex` | Thesis LaTeX source |
+| `Presentation/20APSE4882.pptx` | **Final defence deck** — 17 slides |
+| `report/Progress_Report_27May2026.pdf` | Interim progress report (May 2026) |
 | `results/FINAL_results_table.csv` | All model metrics in one CSV |
 | `models/cnn_lstm_enhanced.pth` | Best CNN-LSTM model weights |
 | `models/distilbert_bug_reports/` | Fine-tuned DistilBERT model |
+
+Both final deliverables are built to their departmental specifications:
+the thesis follows *Thesis Preparation and Submission Guidelines v1.0*
+(1.5in binding margin, Times New Roman, chapter/section heading styles,
+IEEE references, 50-page minimum), and the deck is built on the
+*FINAL Defense PPT Template* so it inherits the faculty theme, colours
+and branding.
 
 ---
 
